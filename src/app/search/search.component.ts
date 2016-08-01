@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
+import { SearchService } from '../search.service';
 
 @Component({
   moduleId: module.id,
@@ -10,20 +11,18 @@ export class SearchComponent implements OnInit, OnChanges {
 
   keyword: string;
 
-  @Output()
-  search = new EventEmitter<string>();
+  constructor(private searchsvc: SearchService) {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-
   }
 
   doSearch() {
-    this.search.emit(this.keyword);
+    this.searchsvc.doSearch(this.keyword);
   }
 
 }

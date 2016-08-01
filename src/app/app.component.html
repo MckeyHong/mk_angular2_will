@@ -5,7 +5,7 @@
         <section class="col-md-8 content-wrapper">
           <div id="ctl00_cphBody_divError"></div>
           <div id="ctl00_cphBody_PostList1_posts" class="posts">
-            <app-article *ngFor="let item of data" [item]="item"></app-article>
+            <app-article *ngFor="let item of searchsvc.data" [item]="item"></app-article>
           </div>
         </section>
 
@@ -14,7 +14,7 @@
         <aside class="col-md-4 sidebar-wrapper">
           <div id="widgetzone_be_WIDGET_ZONE" class="widgetzone">
 
-            <app-search (search)="doSearch($event)"></app-search>
+            <app-search></app-search>
             <!-- Calendar START -->
             <div class="widget calendar" id="widgete02e41df-35d8-4572-a862-0dd0fb2fa504">
               <h4 class="widget-header">
