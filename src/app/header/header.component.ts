@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title = 'Angular2 練習';
+  title = '<i>Angular2 練習</i>';
+  titlelink = 'http://blog.miniasp.com/';
 
   num = 1;
 
