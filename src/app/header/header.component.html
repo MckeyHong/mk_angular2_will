@@ -28,9 +28,8 @@
           <img src="/assets/images/logo.png" class="pull-left logo" [alt]="title">
           <hgroup class="pull-left">
             <h1>
-              <a [href]="titlelink" [title]="title" [innerHTML]="title"></a>
-              <br>
-              <input type="text" [(ngModel)]="editTitleText" (keyup)="editTitle($event)">
+              <a *ngIf="!IsEdit" (dblclick)="enterEdit($event)" [title]="title" [innerHTML]="title"></a>
+              <input *ngIf="IsEdit" type="text" #editInput [value]="editTitleText" (keyup)="editTitle($event, editInput)">
             </h1>
             <h3 class="subtitle">
               記載著 Will 在網路世界的學習心得與技術分享

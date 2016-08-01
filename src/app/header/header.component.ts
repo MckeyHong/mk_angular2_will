@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
 
   num = 1;
 
+  IsEdit = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -23,10 +25,15 @@ export class HeaderComponent implements OnInit {
     this.num = this.num + 1;
   }
 
-  editTitle($event: KeyboardEvent) {
+  editTitle($event: KeyboardEvent, input: HTMLInputElement) {
     if ($event.keyCode == 13) {
-      this.title = this.editTitleText;
+      this.title = input.value;
+      this.IsEdit = false;
     }
   }
 
+  enterEdit($event: MouseEvent) {
+    this.IsEdit = true;
+    $event.preventDefault();
+  }
 }
