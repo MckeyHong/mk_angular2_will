@@ -8,9 +8,14 @@ export class SearchService {
   default_data: any;
 
   constructor(private http: Http) {
-    this.http.get('/api/articles.json').map((res) => res.json()).subscribe((value) => {
-      this.data = this.default_data = value;
-    });
+    // this.data = this.default_data;
+
+    // /api/articles.json
+    this.http.get('/api/articles.json')
+      //.map( (res) => res.json() )
+      .subscribe( (value) => {
+        this.data = this.default_data = value.json();
+      });
   }
 
   doSearch(keyword) {
